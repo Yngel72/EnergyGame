@@ -199,10 +199,10 @@ Now we need to play one animation per direction of movement. For this we need an
 ```blocks
 game.onUpdateInterval(300, function () {
     if (true) {
-        
-    } else if (false) {
-        
-    }
+	
+} else {
+	
+}
 })
 ```
 
@@ -285,7 +285,7 @@ game.onUpdateInterval(300, function () {
 })
 ```
 ### Step 6
-Change where it says 500 ms to 100 ms in the ``||Animation.animate mySprite||`` block and press the little switch at the bottom of the block, so that it says ``||Animation.loop on||``.
+Change where it says 500 ms to 100 ms in the ``||Animation.animate mySprite||`` block and make sure it says ``||Animation.loop OFF||``at the bottoom of the block.
 
 ```blocks
 game.onUpdateInterval(300, function () {
@@ -311,7 +311,7 @@ game.onUpdateInterval(300, function () {
             . . . . . . . . . . . . . . . . 
             `],
         100,
-        true
+        false
         )
     } else if (false) {
         
@@ -384,7 +384,7 @@ game.onUpdateInterval(300, function () {
             . . . f f f . . . f f . . . 
             `],
         100,
-        true
+        false
         )
     } else if (false) {
         
@@ -397,7 +397,7 @@ game.onUpdateInterval(300, function () {
     }
 ```
 ### Step 8
-Repeat step 5 through 8 for the three remaining directions. Remember to choose the right animation, to set the time to 100 ms and to turn on ``||Animation.loop||``.
+Repeat step 5 through 8 for the three remaining directions. Remember to choose the correct animation and to set the time to 100 ms.
 Inside the final gap of your ``||Logic.if-then-else||`` block, place a ``||Sprites.set mySprite image to||`` block and choose the gallery image where your player character is facing you.
 ```blocks
 let mySprite: Sprite = null
@@ -458,7 +458,7 @@ game.onUpdateInterval(300, function () {
             . . . f f f . . . f f . . . 
             `],
         100,
-        true
+        false
         )
     } else if (controller.up.isPressed()) {
         animation.runImageAnimation(
@@ -516,7 +516,7 @@ game.onUpdateInterval(300, function () {
             . . . . . . . . f f f . . . 
             `],
         100,
-        true
+        false
         )
     } else if (controller.right.isPressed()) {
         animation.runImageAnimation(
@@ -574,7 +574,7 @@ game.onUpdateInterval(300, function () {
             . . . . . f f f . . . . . . 
             `],
         100,
-        true
+        false
         )
     } else if (controller.down.isPressed()) {
         animation.runImageAnimation(
@@ -632,7 +632,7 @@ game.onUpdateInterval(300, function () {
             . . . . . . . . f f f . . . 
             `],
         100,
-        true
+        false
         )
     } else {
         mySprite.setImage(img`

@@ -184,7 +184,7 @@ Lets set up an invisible border that can only be crossed at a control post. It w
 
 ### Step 1
 First, we'll need to set up a guard post where the two islands meet. The control post needs to be a unique ``||Scene.tile||``. Click the tiny map icon in the ``||Scene.set tilemap to||``, find a previously unused ``||Scene.tile||`` you think would make a nice control post and place it (just the one) in the area where the two islands meet.
-![Grensevakt](https://raw.githubusercontent.com/Yngel72/energygame/master/assets/guardpost.jpg)
+![Border guard](https://raw.githubusercontent.com/Yngel72/energygame/master/assets/guardpost.jpg)
 ### Step 2
 Click on the small map icon in the ``||Scene.set tilemap to||`` block once more. Click the wall icon underneath the smaller picture of the map on the left side of the screen. "Draw walls" will pop up under the icon to confirm it's the right one as you hold your mouse pointer over it.
 ![Veggverktøy](https://raw.githubusercontent.com/Yngel72/energygame/master/assets/Walltool.jpg)
