@@ -186,18 +186,18 @@ Lets set up an invisible border that can only be crossed at a control post. It w
 First, we'll need to set up a guard post where the two islands meet. The control post needs to be a unique ``||Scene.tile||``. Click the tiny map icon in the ``||Scene.set tilemap to||``, find a previously unused ``||Scene.tile||`` you think would make a nice control post and place it (just the one) in the area where the two islands meet.
 ![Grensevakt](https://raw.githubusercontent.com/Yngel72/energygame/master/assets/guardpost.jpg)
 ### Step 2
-Klikk på kartikonet i ``||Scene.set tilemap to||``-blokken på nytt. Klikk på vegg-ikonet under det lille bildet av kartet på venstre side av skjermen. "Draw walls" kommer opp under ikonet når du peker på det.
-![Veggverktøy](https://raw.githubusercontent.com/Yngel72/energispillet/master/assets/Walltool.jpg)
+Click on the small map icon in the ``||Scene.set tilemap to||`` block once more. Click the wall icon underneath the smaller picture of the map on the left side of the screen. "Draw walls" will pop up under the icon to confirm it's the right one as you hold your mouse pointer over it.
+![Veggverktøy](https://raw.githubusercontent.com/Yngel72/energygame/master/assets/Walltool.jpg)
 ### Step 3
-Tegn en vegg som deler kartet i to mellom de to øyene. Pass på at grensen går helt ut i kanten av bildet og at det ikke er hull i veggen andre steder enn ved kontrollposten.
+Draw a wall that divides the map between the two islands. Make sure the border goes all the way out to the edge of the map and that the only opening is at the border control post.
 ![Grensemur](https://raw.githubusercontent.com/Yngel72/energispillet/master/assets/Grensevegg4.gif)
 ### Step 4
-Legg til en grensevakt på kontrollposten. Hent en ``||Sprites.set mySprite to sprite of kind||``-blokk fra ``||Sprites.Sprites||``-menyen og plasser den i hovedkoden din. Klikk på det grå feltet og velg et bilde. Klikk på feltet ``||Variables.mySprite||`` og velg "New variable". Kall den nye variabelen for "vakt". Endre typen (Kind) til en ny type sprite. Kall den "grensevakt" eller noe annet som gir mening.
+Add a guard to the control post. Get a ``||Sprites.set mySprite to sprite of kind||`` block from the ``||Sprites.Sprites||`` menu and place it inside your main code near the bottom. Click the grey square in the block and choose an image for your guard. Click where it says ``||Variables.mySprite||`` in the same block and choose "New variable". Name the new variable "guard". Change the ``||Sprites.Kind||`` to a new kind that you can name "Borderguard" or something similar that makes sense.
 ```blocks
 namespace SpriteKind {
-    export const Grensevakt = SpriteKind.create()
+    export const Borderguard = SpriteKind.create()
 }
-let vakt = sprites.create(img`
+let guard = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
     . . . f f f 2 2 2 2 f f f . . . 
@@ -214,16 +214,16 @@ let vakt = sprites.create(img`
     . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
-    `, SpriteKind.Grensevakt)
+    `, SpriteKind.Borderguard)
 
 ```
 ### Step 5
-Plasser vakten ved å legge til en ``||Scene.place mySprite on top of random tile||``-blokk fra ``||Scene.Scene||``-menyen under den nye sprite-blokken din og velg ``||Variables.vakt||`` i stedet for ``||Variables.mySprite||`` og velg kontrollpost-tilen som det den skal plasseres på.
+Place the guard on the map by adding a ``||Scene.place mySprite on top of random tile||`` block from the ``||Scene.Scene||`` menu underneath your new blocks and choose ``||Variables.guard||`` instead of ``||Variables.mySprite||``. Choose the controlpost tile for the tile kind to place the sprite on.
 ```blocks
 namespace SpriteKind {
-    export const Grensevakt = SpriteKind.create()
+    export const Borderguard = SpriteKind.create()
 }
-let vakt = sprites.create(img`
+let guard = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
     . . . f f f 2 2 2 2 f f f . . . 
@@ -240,19 +240,19 @@ let vakt = sprites.create(img`
     . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
-    `, SpriteKind.Grensevakt)
+    `, SpriteKind.Borderguard)
 tiles.placeOnRandomTile(vakt, sprites.builtin.forestTiles0)
 ```
 ### Step 6
- Hva skal skje når spilleren treffer grensevakten?
-Plasser vakten på feltet mellom de to områdene og hent inn en ``||Sprites.on sprite of kind Player overlaps sprite of kind||``-blokk, slik at du kan kontrollere hva som skal skje hvis spilleren overlapper med vakten.
+What happens when the player meets the guard?
+Get a ``||Sprites.on sprite of kind Player overlaps sprite of kind||`` block so you can decide what happens when the player and the guard sprites overlap.
 
-Kanskje vakten slenger spilleren tilbake til et felt inne på området sitt? Kanskje spilleren kan komme forbi hvis den har klart å samle nok energi først? Går det an å bestikke vakten med litt energi, kanskje? Eller kan spilleren klare å snike seg forbi på et vis?
+Maybe the guard tosses the player to a random tile in a specific or random area? Maybe the player can bribe the guard to let them pass if they have enough energy? Could the player sneak past the guard in some other way?
 ```blocks
 namespace SpriteKind {
-    export const Grensevakt = SpriteKind.create()
+    export const Borderguard = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Grensevakt, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Borderguard, function (sprite, otherSprite) {
     if (true) {
     	
     } else {
