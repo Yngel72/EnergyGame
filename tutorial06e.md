@@ -213,5 +213,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Renewable, function (sprite, oth
 ### Step 3
 That's it. Adding sound is very easy, isn't it?
 
+<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
 
 

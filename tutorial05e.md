@@ -185,9 +185,9 @@ info.startCountdown(10)
 To make your game a bit more challenging, you can add some enemies to your game. Click "continue" to learn how. 
 
 ### Step 1
-Start by grabbing a new ``||sprite.set mySprite to sprite of kind||`` block from the ``||sprites.Sprites||`` menu and place it inside your existing ``||Loops.on start||`` loop, near the bottom. Click the grey square and choose a character different from your player character from the gallery. DON'T GRAB A NEW ``||Loops.on start||`` LOOP, USE THE EXISTING ONE!
+Start by grabbing a new ``||sprite.set mySprite to sprite of kind||`` block from the ``||sprites.Sprites||`` menu and place it inside your existing ``||Loops.on start||`` loop, near the bottom. Click the grey square and choose a character different from your player character from the gallery.
 
-```blocks
+```block
 let mySprite2 = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -212,7 +212,7 @@ let mySprite2 = sprites.create(img`
 
 Since this new character is going to be an enemy, change the kind from "player" to "enemy".
 
-```blocks
+```block
 let mySprite2 = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -236,7 +236,7 @@ let mySprite2 = sprites.create(img`
 ### Step 3
 Place the enemy in a random spot by using a ``||Scene.place mysprite2 on top of random||`` block from the ``||Scene.Scene||`` menu and place it underneath your new mySprite2 block.
 
-```blocks
+```block
 let mySprite2 = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -261,7 +261,7 @@ tiles.placeOnRandomTile(mySprite2, sprites.castle.tilePath5)
 ### Step 4
 We need to make the enemy move on its own. Do this by giving the new sprite a specific speed in a specific X,Y-direction. Grab a ``||Sprites.set mysprite2 velocity to vx vy||`` block from the ``||Sprites.Sprites||`` menu and place it underneath the two new blocks.
 
-```blocks
+```block
 let mySprite2 = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -286,7 +286,7 @@ mySprite2.setVelocity(50, 50)
 
 ### Step 5
 To stop the enemy from disappearing off the game map, we'll make it bounce back once it hits the edge. Grab a ``||Sprites.set mySprite bounce on wall||`` block from the ``||Sprites.Sprites||`` menu and change ``||sprite.mySprite||`` to ``||sprite.mySprite2||``.
-```blocks
+```block
 let mySprite2 = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -312,7 +312,7 @@ mySprite2.setBounceOnWall(true)
 ### Step 6
 Now it's time to decide what happens when your enemy encounters energy on the map. For that, we first need an ``||Sprites.on sprite of kind player overlaps othersprite of kind||`` block from the ``||Sprites.Sprites||`` menu. Get one!
 
-```blocks
+```block
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
     
 })
@@ -320,7 +320,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherS
 ### Step 7
 Maybe the enemy should be able to collect energy of its own? In that case, you'll need to make overlap loops for each kind of energy in the game. You can copy the existing ones and replace the ``||Info.change score by||`` block with a ``||Info.change player 2 score by 1||`` block from the ``||Info.Info||`` menu and change the sprite kind in the overlap block from "Player" to "Enemy". You'll need to do the same for the other kinds of energy.
 
-```blocks
+```block
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Food, function (sprite, otherSprite) {
     otherSprite.destroy()
     info.player2.changeScoreBy(1)
@@ -328,21 +328,21 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Food, function (sprite, otherSpri
 ```
 ### Step 8
 What happens when your player character encounters the enemy? Maybe the enemy can steal points from you? It's up to you, but you'll need to start with a ``||Sprites.on sprite of kind overlaps othersprite...||`` block and set the sprite kinds to Player and Enemy. Maybe the enemy steals a point (or more?) from you on such an encounter?
-```blocks
+```block
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     
 })
 ```
 ### Step 9
 One last hint just to give an example of what may happen when your character encounters an enemy thief. In this case, you lose a point, while the thief gains one. Get a ``||Info.change score by 1||`` block from the ``||Info.Info||`` menu, place it inside your ``||Sprites.overlap||`` block and change the 1 to a -1.
-```blocks
+```block
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeScoreBy(-1)
 })
 ```
 ### Step 10
 Since the thief steal the point, their score needs to increase by the same amount your player loses. Get a ``||Info.change player 2 score by 1||`` block from the ``||Info.Info||`` menu and place it underneath the ``||Info.change score by||`` block in the ``||Sprites.overlap||`` block.
-```blocks
+```block
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeScoreBy(-1)
     info.player2.changeScoreBy(1)
@@ -350,7 +350,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 ```
 ### Step 11
 That's it! You've introduced an enemy thief into your game! If you want to make it even more interesting and perhaps make your enemy an assassin, you can play around with the ``||Info.set life to||`` in the main code and ``||Info.change life by -1||`` inside an ``||Sprites.overlap||`` block. Maybe you lose a life when you encounter your enemy? A brief example can be seen in the hint here.
-```blocks
+```block
 namespace SpriteKind {
     export const Energy = SpriteKind.create()
 }
@@ -380,5 +380,6 @@ tiles.placeOnRandomTile(mySprite2, sprites.castle.tilePath5)
 mySprite2.setVelocity(50, 50)
 mySprite2.setBounceOnWall(true)
 ```
+<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
 
 

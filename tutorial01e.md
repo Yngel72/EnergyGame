@@ -489,5 +489,6 @@ info.startCountdown(10)
 ### Step 9
 Finished! Play the game and see how many points you can score. 
 
+<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
 
 

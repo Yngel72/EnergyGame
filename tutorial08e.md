@@ -192,12 +192,12 @@ Click on the small map icon in the ``||Scene.set tilemap to||`` block once more.
 Draw a wall that divides the map between the two islands. Make sure the border goes all the way out to the edge of the map and that the only opening is at the border control post.
 ![Grensemur](https://raw.githubusercontent.com/Yngel72/energispillet/master/assets/Grensevegg4.gif)
 ### Step 4
-Add a guard to the control post. Get a ``||Sprites.set mySprite to sprite of kind||`` block from the ``||Sprites.Sprites||`` menu and place it inside your main code near the bottom. Click the grey square in the block and choose an image for your guard. Click where it says ``||Variables.mySprite||`` in the same block and choose "New variable". Name the new variable "guard". Change the ``||Sprites.Kind||`` to a new kind that you can name "Borderguard" or something similar that makes sense.
-```blocks
+Add a guard to the control post. Get a ``||Sprites.set mySprite to sprite of kind||`` block from the ``||Sprites.Sprites||`` menu and place it inside your main code near the bottom. Click the grey square in the block and choose an image for your guard. Click where it says ``||Variables.mySprite||`` in the same block and choose ``||variables.new variable||``. Name the new variable "borderguard". Change the ``||Sprites.Kind||`` to a new kind that you can name ``||Sprites.Guard||`` or something similar that makes sense.
+```block
 namespace SpriteKind {
-    export const Borderguard = SpriteKind.create()
+    export const Guard = SpriteKind.create()
 }
-let guard = sprites.create(img`
+let borderguard = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
     . . . f f f 2 2 2 2 f f f . . . 
@@ -214,16 +214,16 @@ let guard = sprites.create(img`
     . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
-    `, SpriteKind.Borderguard)
+    `, SpriteKind.Guard)
 
 ```
 ### Step 5
-Place the guard on the map by adding a ``||Scene.place mySprite on top of random tile||`` block from the ``||Scene.Scene||`` menu underneath your new blocks and choose ``||Variables.guard||`` instead of ``||Variables.mySprite||``. Choose the controlpost tile for the tile kind to place the sprite on.
-```blocks
+Place the border guard on the map by adding a ``||Scene.place mySprite on top of random tile||`` block from the ``||Scene.Scene||`` menu underneath your new blocks and choose ``||Variables.borderguard||`` instead of ``||Variables.mySprite||``. Choose the controlpost tile as the tile kind to place the sprite on.
+```block
 namespace SpriteKind {
-    export const Borderguard = SpriteKind.create()
+    export const Guard = SpriteKind.create()
 }
-let guard = sprites.create(img`
+let borderguard = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
     . . . f f f 2 2 2 2 f f f . . . 
@@ -240,19 +240,19 @@ let guard = sprites.create(img`
     . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
-    `, SpriteKind.Borderguard)
-tiles.placeOnRandomTile(vakt, sprites.builtin.forestTiles0)
+    `, SpriteKind.Guard)
+tiles.placeOnRandomTile(borderguard, sprites.builtin.forestTiles0)
 ```
 ### Step 6
 What happens when the player meets the guard?
 Get a ``||Sprites.on sprite of kind Player overlaps sprite of kind||`` block so you can decide what happens when the player and the guard sprites overlap.
 
 Maybe the guard tosses the player to a random tile in a specific or random area? Maybe the player can bribe the guard to let them pass if they have enough energy? Could the player sneak past the guard in some other way?
-```blocks
+```block
 namespace SpriteKind {
-    export const Borderguard = SpriteKind.create()
+    export const Guard = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Borderguard, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Guard, function (sprite, otherSprite) {
     if (true) {
     	
     } else {

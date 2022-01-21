@@ -214,18 +214,24 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Fossil, function (sprite, otherS
 })
 ```
 
-### Ste4 4
-What happens when the planet runs out of life? Well, it probably goes without saying, but you'll have to use a ``||Info.on life zero||`` block from the ``||Info.Info||`` menu to make something happen. You can put sounds from the ``||Music.Music||`` menu in there, animate the screen with blocks from the ``||Scene.Scene||`` menu, or maybe just place a ``||Game.game over||`` block from ``||Game.Game||`` menu in there? (Warning: The ``||Game.game over||`` block will stop any other blocks inside the ``||Info.on life zero||``  from taking effect.)
+### Step 4
+What happens when the planet runs out of life? Well, it probably goes without saying, but you'll have to use a ``||Info.on player 2 life zero||`` block from the ``||Info.Info||`` menu to make something happen. You can put sounds from the ``||Music.Music||`` menu in there, animate the screen with blocks from the ``||Scene.Scene||`` menu, or maybe just place a ``||Game.game over||`` block from ``||Game.Game||`` menu in there? (Warning: The ``||Game.game over||`` block will stop any other blocks inside the ``||Info.on life zero||``  from taking effect.)
 
 ```blocks
-info.onLifeZero(function () {
-    game.over(false)
+info.player2.onLifeZero(function () {
+	
 })
 ```
-
+```ghost
+music.baDing.play()
+scene.cameraShake(4, 500)
+effects.confetti.startScreenEffect()
+game.over(false)
+```
 ### Step 5
 That's it for the environmental impact of energy sources.
 Here's an extra challenge:
 Maybe some actions have a positive impact on the environment? You could introduce rare items that increase the health of the planet if you remove them. Plastic in the ocean, for instance. Which blocks would you use to add these to your game? It's up to you!
 
+<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
 

@@ -404,5 +404,6 @@ sprites.onOverlap(SpriteKind.Player, Renewable, function (sprite, otherSprite) {
 ### Step 7
 And that's it! Now that you know how to make new kinds of energy sources, you're ready to move on and learn how to make your player character to appear more alive.
 
+<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
 
 

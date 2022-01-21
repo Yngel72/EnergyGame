@@ -658,4 +658,5 @@ game.onUpdateInterval(300, function () {
 ### Step 9
 Congratulations! That's all of it! Now you know how to make your character move in a more life like fashion.
 
+<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
 
