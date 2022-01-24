@@ -198,6 +198,7 @@ Now we need to play one animation per direction of movement. For this we need an
 
 ```blocks
 game.onUpdateInterval(300, function () {
+    // @highlight
     if (true) {
 	
 } else {
@@ -212,6 +213,7 @@ You now have what you need to set up an animation for each direction and for whe
 
 ```blocks
 game.onUpdateInterval(300, function () {
+    // @highlight
     if (true) {
         
     } else if (false) {
@@ -232,6 +234,7 @@ Get a hexagonal ``||Controller.is A button pressed||`` block from the ``||Contro
 
 ```blocks
 game.onUpdateInterval(300, function () {
+    // @highlight
     if (controller.left.isPressed()) {
         
     } else if (false) {
@@ -250,6 +253,7 @@ Get an ``||Animation.animate mySprite frames interval||`` block from the ``||Ani
 ```blocks
 game.onUpdateInterval(300, function () {
     if (controller.left.isPressed()) {
+        // @highlight
         animation.runImageAnimation(
         mySprite,
         [img`
@@ -290,6 +294,7 @@ Change where it says 500 ms to 100 ms in the ``||Animation.animate mySprite||`` 
 ```blocks
 game.onUpdateInterval(300, function () {
     if (controller.left.isPressed()) {
+        // @highlight
         animation.runImageAnimation(
         mySprite,
         [img`
@@ -329,6 +334,7 @@ Click the grey square in the ``||Animation.animate mySprite||`` block. Choose "g
 ```blocks
 game.onUpdateInterval(300, function () {
     if (controller.left.isPressed()) {
+        // @highlight
         animation.runImageAnimation(
         mySprite,
         [img`
@@ -397,7 +403,7 @@ game.onUpdateInterval(300, function () {
     }
 ```
 ### Step 8
-Repeat step 5 through 8 for the three remaining directions. Remember to choose the correct animation and to set the time to 100 ms.
+Repeat step 5 through 7 for the three remaining directions. Remember to choose the correct animation and to set the time to 100 ms.
 Inside the final gap of your ``||Logic.if-then-else||`` block, place a ``||Sprites.set mySprite image to||`` block and choose the gallery image where your player character is facing you.
 ```blocks
 let mySprite: Sprite = null
@@ -635,6 +641,7 @@ game.onUpdateInterval(300, function () {
         false
         )
     } else {
+        // @highlight
         mySprite.setImage(img`
             . f f f . f f f f . f f f . 
             f f f f f c c c c f f f f f 

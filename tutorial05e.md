@@ -213,6 +213,7 @@ let mySprite2 = sprites.create(img`
 Since this new character is going to be an enemy, change the kind from "player" to "enemy".
 
 ```block
+// @highlight
 let mySprite2 = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -255,6 +256,7 @@ let mySprite2 = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Enemy)
+// @highlight
 tiles.placeOnRandomTile(mySprite2, sprites.castle.tilePath5)
 ```
 
@@ -281,6 +283,7 @@ let mySprite2 = sprites.create(img`
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Enemy)
 tiles.placeOnRandomTile(mySprite2, sprites.castle.tilePath5)
+// @highlight
 mySprite2.setVelocity(50, 50)
 ```
 
@@ -307,22 +310,25 @@ let mySprite2 = sprites.create(img`
     `, SpriteKind.Enemy)
 tiles.placeOnRandomTile(mySprite2, sprites.castle.tilePath5)
 mySprite2.setVelocity(50, 50)
+// @highlight
 mySprite2.setBounceOnWall(true)
 ```
 ### Step 6
-Now it's time to decide what happens when your enemy encounters energy on the map. For that, we first need an ``||Sprites.on sprite of kind player overlaps othersprite of kind||`` block from the ``||Sprites.Sprites||`` menu. Get one!
+Now it's time to decide what happens when your enemy encounters energy on the map. For that, we first need an ``||Sprites.on sprite of kind player overlaps othersprite of kind||`` block from the ``||Sprites.Sprites||`` menu. Get one and add a ``||Sprites.destroy mySprite||`` block into it. Drag the ``||Variables.otherSprite||`` to where it says ``||Variables.mySprite||``.
 
 ```block
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
-    
+    // @highlight
+    otherSprite.destroy()
 })
 ```
 ### Step 7
-Maybe the enemy should be able to collect energy of its own? In that case, you'll need to make overlap loops for each kind of energy in the game. You can copy the existing ones and replace the ``||Info.change score by||`` block with a ``||Info.change player 2 score by 1||`` block from the ``||Info.Info||`` menu and change the sprite kind in the overlap block from "Player" to "Enemy". You'll need to do the same for the other kinds of energy.
+Maybe the enemy should be able to collect energy of its own? In that case, you'll need to make overlap loops for each kind of energy in the game. You can copy the existing ones and replace the ``||Info.change score by||`` block with a ``||Info.change player 2 score by 1||`` block from the ``||Info.Info||`` menu and change the sprite kinds in the overlap block from ``||Sprites.Player||`` to ``||Sprites.Enemy||`` in the first field and from ``||Sprites.Player||`` to ``||Sprites.Food||`` in the other one. You'll need to do the same for the other kinds of energy.
 
 ```block
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Food, function (sprite, otherSprite) {
     otherSprite.destroy()
+    // @highlight
     info.player2.changeScoreBy(1)
 })
 ```
@@ -337,6 +343,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 One last hint just to give an example of what may happen when your character encounters an enemy thief. In this case, you lose a point, while the thief gains one. Get a ``||Info.change score by 1||`` block from the ``||Info.Info||`` menu, place it inside your ``||Sprites.overlap||`` block and change the 1 to a -1.
 ```block
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    // @highlight
     info.changeScoreBy(-1)
 })
 ```
@@ -345,6 +352,7 @@ Since the thief steal the point, their score needs to increase by the same amoun
 ```block
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeScoreBy(-1)
+    // @highlight
     info.player2.changeScoreBy(1)
 })
 ```
@@ -375,6 +383,7 @@ let mySprite2 = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Enemy)
+// @highlight
 info.setLife(3)
 tiles.placeOnRandomTile(mySprite2, sprites.castle.tilePath5)
 mySprite2.setVelocity(50, 50)
