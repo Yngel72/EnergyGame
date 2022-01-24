@@ -403,7 +403,6 @@ for (let index = 0; index < 100; index++) {
 
 ```
 
-## Capture the energy
 
 ### Step 5
 
@@ -412,6 +411,7 @@ When the player catches a lightning, we want it to disappear. In the ``||Sprites
 ```blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
 })
+
 ```
 
 ### Step 6
