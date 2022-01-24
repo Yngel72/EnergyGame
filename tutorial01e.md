@@ -1,3 +1,5 @@
+### @activities true
+
 ```template
 namespace myTiles {
     //% blockIdentity=images._tile
@@ -248,7 +250,7 @@ energy = sprites.create(img`
     . . . . . . . . . . . . . . . .
 `, SpriteKind.Food)
 ```
-## Placing sprites
+
 
 ### Step 2
 Make your player character appear in a random spot. In the ``||Scene.Scene||`` menu, find ``||Scene.place mySprite on top of random...||``. Place this in ``||loops.on start||``, underneath ``||Variables.Set mySprite to...||``. Click the grey square and choose the sand coloured tile from the menu that pops up. 
@@ -349,7 +351,7 @@ tiles.placeOnRandomTile(energy, sprites.castle.tilePath5)
 
 ```
 
-### Ste4 4
+### Step 4
 We need more energy sprites. Use a ``||loops.repeat||`` loop from the ``||loops.loops||``  menu to repeat the two lower blocks in ``||loops.on start||`` about 100 times.
 Tip: You can move individual blocks by pressing and holding Ctrl while you drag them.
 
