@@ -441,7 +441,7 @@ info.onCountdownEnd(function () {
     if (info.score() < 20) {
         game.over(false)
     } else {
-        game.over(false)
+        game.over(true)
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
