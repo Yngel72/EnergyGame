@@ -192,6 +192,7 @@ for (let index = 0; index < 100; index++) {
         . . . . . f f f . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Food)
+    // @highlight
     if (true) {
         
     } else {
@@ -207,7 +208,7 @@ info.startCountdown(10)
 
 Where it says ``||Logic.true ||`` we're going to place a ``||Math.0% chance ||`` block
 from the ``||Math.Math||`` menu. Change the 0 to 80.
-```blocks
+```block
 for (let index = 0; index < 100; index++) {
     energy = sprites.create(img`
         . . . . . . . . . . . . . . . . 
@@ -227,12 +228,13 @@ for (let index = 0; index < 100; index++) {
         . . . . . f f f . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Food)
+    // @highlight
     if (Math.percentChance(80)) {
         
     } else {
         
     }
-    tiles.placeOnRandomTile(energi, sprites.castle.tilePath5)
+    tiles.placeOnRandomTile(energy, sprites.castle.tilePath5)
 }
 
  ```
@@ -241,7 +243,7 @@ for (let index = 0; index < 100; index++) {
 We should now have an 80 % probability of any one lightning to be placed on the sandy island. Move the ``||scene.place energy on top of random ||`` block into the 
 topmost gap in the ``|| logic. if else||`` block. 
 
-```blocks
+```block
     
     energy = sprites.create(img`
         . . . . . . . . . . . . . . . . 
@@ -262,7 +264,8 @@ topmost gap in the ``|| logic. if else||`` block.
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Food)
     if (Math.percentChance(80)) {
-        tiles.placeOnRandomTile(energi, sprites.castle.tilePath5)
+        // @highlight
+        tiles.placeOnRandomTile(energy, sprites.castle.tilePath5)
     } else {
         
     }
@@ -277,7 +280,7 @@ Click the sand coloured square and change the tile to the green one.
 
 Tip: you can make a copy of a block by right clicking on it and choose Duplicate.
 
-```blocks
+```block
 for (let index = 0; index < 100; index++) {
     energy = sprites.create(img`
         . . . . . . . . . . . . . . . . 
@@ -298,9 +301,10 @@ for (let index = 0; index < 100; index++) {
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Food)
     if (Math.percentChance(80)) {
-        tiles.placeOnRandomTile(energi, sprites.castle.tilePath5)
+        tiles.placeOnRandomTile(energy, sprites.castle.tilePath5)
     } else {
-        tiles.placeOnRandomTile(energi, sprites.castle.tileGrass1)
+        // @highlight
+        tiles.placeOnRandomTile(energy, sprites.castle.tileGrass1)
     }
 ```
 
@@ -314,7 +318,7 @@ Find a new ``||Logic.if true then else||`` block, and place it underneath
 Where it says ``||logic.true||`` we're going to put a 
 ``||math. 0% chance||`` block, like we did before. Change the 0 to 20. 
 
-```blocks
+```block
 
 let mySprite = sprites.create(img`
     . f f f . f f f f . f f f . 
@@ -334,9 +338,12 @@ let mySprite = sprites.create(img`
     . . . . f f f f f f . . . . 
     . . . . f f . . f f . . . . 
     `, SpriteKind.Player)
+// @highlight
 if (Math.percentChance(20)) {
     tiles.placeOnRandomTile(mySprite, sprites.castle.tilePath5)
-} else
+} else{
+
+}
 ```
 
 ### Step 7
@@ -364,6 +371,7 @@ let mySprite = sprites.create(img`
     . . . . f f f f f f . . . . 
     . . . . f f . . f f . . . . 
     `, SpriteKind.Player)
+// @highlight
 if (Math.percentChance(20)) {
     tiles.placeOnRandomTile(mySprite, sprites.castle.tilePath5)
 } else {
@@ -395,6 +403,7 @@ Change the other 0 to 20.
 
 ```blocks
 info.onCountdownEnd(function () {
+    // @highlight
     if (info.score() < 20) {
         
     } else {
@@ -411,6 +420,7 @@ Which one should be set to ``||game.win||`` an which one shold be set to ``||gam
 
 ```blocks
 info.onCountdownEnd(function () {
+    // @highlight
     if (info.score() < 20) {
         game.over(false)
     } else {

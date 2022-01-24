@@ -212,6 +212,7 @@ for (let index = 0; index < 100; index++) {
     }
     
 }
+// @highlight
 for (let index = 0; index < 200; index++) {   
 }
 info.startCountdown(10)
@@ -220,11 +221,13 @@ info.startCountdown(10)
 
 ### Step 3
 
-Inside the new ``||loops.repeat ||`` block we need another ``||sprite.set mySprite to...||`` block from the
- ``||Sprites.Sprites||`` menu. Click where it says ``||sprite.mySprite2||`` and make a new variable. Name it offshoreWind. Click where it says ``||Sprite.kind||`` and make a new kind of sprite named "Renewable". Click the grey square and draw your new energy sprite. What does wind look like?
+Inside the new ``||loops.repeat ||`` block we need another ``||Variables.set mySprite to...||`` block from the
+ ``||Sprites.Sprites||`` menu. Click where it says ``||Variables.mySprite2||`` and make a new variable. Name it ``||Variables.offshoreWind||``. Click where it says ``||Sprites.Player||`` and make a new kind of sprite named ``||Sprites.Renewable||``. Click the grey square and draw your new energy sprite. What does wind look like?
 
 ```blocks
-
+namespace SpriteKind {
+    export const Renewable = SpriteKind.create()
+}
 let energy: Sprite = null
 tiles.setTilemap(tilemap`level1`)
 scene.setBackgroundColor(9)
@@ -276,6 +279,7 @@ for (let index = 0; index < 100; index++) {
     
 }
 for (let index = 0; index < 200; index++) {
+    // @highlight
     offshoreWind = sprites.create(img`
         . . . . . . . 1 8 8 8 1 8 8 . . 
         . . . . . . . 1 8 1 8 8 1 8 . . 
@@ -293,7 +297,7 @@ for (let index = 0; index < 200; index++) {
         . . . . . . . 1 8 8 . . 1 8 . . 
         . . . . . . . . 1 1 . 1 1 8 . . 
         . . . . . . . . . . 1 8 8 8 . . 
-        `,Renewable)
+        `,SpriteKind.Renewable)
        
 }
 info.startCountdown(10)
@@ -301,11 +305,13 @@ info.startCountdown(10)
 ```
 
 ### Step 4
-We want all our ``||Sprites.offshoreWind||`` sprites to appear in the ocean. Get a ``||scene.place energy on top of random ||`` block from the 
-``||Scene.scene||`` menu and place it inside the new ``||Loops.repeat||`` block. Change where it says ``||Sprites.mySprite2||`` to ``||Sprites.offshoreWind||`` and let the grey square remain empty. If we don't specify a type of tile here, the new energy sprites will appear only where there are no tiles on the map, which in this case is the ocean.
+We want all our ``||Variabless.offshoreWind||`` sprites to appear in the ocean. Get a ``||scene.place energy on top of random ||`` block from the 
+``||Scene.scene||`` menu and place it inside the new ``||Loops.repeat||`` block. Change where it says ``||Variables.mySprite2||`` to ``||Variables.offshoreWind||`` and let the grey square remain empty. If we don't specify a type of tile here, the new energy sprites will appear only where there are no tiles on the map, which in this case is the ocean.
 
 ```blocks
-
+namespace SpriteKind {
+    export const Renewable = SpriteKind.create()
+}
 let energy: Sprite = null
 tiles.setTilemap(tilemap`level1`)
 scene.setBackgroundColor(9)
@@ -374,7 +380,8 @@ for (let index = 0; index < 200; index++) {
         . . . . . . . 1 8 8 . . 1 8 . . 
         . . . . . . . . 1 1 . 1 1 8 . . 
         . . . . . . . . . . 1 8 8 8 . . 
-        `,Renewable)
+        `,SpriteKind.Renewable)
+    // @highlight
     tiles.placeOnRandomTile(offshoreWind, assets.tile`tile0`)   
 }
 info.startCountdown(10)
@@ -382,20 +389,27 @@ info.startCountdown(10)
 ```
 
 ### Step 5
-We need a new ``||Sprites.overlap||`` block for when our player encounters the new energy source. Get one from the ``||Sprites.Sprites||`` menu, change the ``||Sprite.kind||`` to ``||Sprite.Renewable||`` and place a ``||Info.change score by 1||`` block from the ``||Info.Info||`` menu inside it.
+We need a new ``||Sprites.overlap||`` block for when our player encounters the new energy source. Get one from the ``||Sprites.Sprites||`` menu, change the ``||Sprites.Kind||`` to ``||Sprites.Renewable||`` and place a ``||Info.change score by 1||`` block from the ``||Info.Info||`` menu inside it.
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, Renewable, function (sprite, otherSprite) {
+namespace SpriteKind {
+    export const Renewable = SpriteKind.create()
+}
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Renewable, function (sprite, otherSprite) {
+    // @highlight
     info.changeScoreBy(1)
 })
 ```
 
 ### Step 6
-Since our new energy source is renewable, we don't want to remove ``||Sprites.offshoreWind||`` entirely from the game when it's harvested. Instead o fusing a ``||Sprites.destroy otherSprite||`` block, we'll use a  ``||Scene.Place mySprite on top of random||`` block to make the harvested energy reappear at a random place in the ocean. Remember to click and drag the ``||Sprite.otherSprite||`` oval to where it says ``||Sprite.mySprite2||``, change the kind to ``||sprite.Renewable||`` and leave the grey square as it is.
+Since our new energy source is renewable, we don't want to remove ``||Variables.offshoreWind||`` entirely from the game when it's harvested. Instead of fusing a ``||Sprites.destroy otherSprite||`` block, we'll use a  ``||Scene.place mySprite on top of random||`` block to make the harvested energy reappear at a random place in the ocean. Remember to click and drag the ``||Variables.otherSprite||`` oval to where it says ``||Variables.mySprite2||``, change the kind to ``||Sprites.Renewable||`` and leave the grey square as it is.
 
 ```blocks
-
-sprites.onOverlap(SpriteKind.Player, Renewable, function (sprite, otherSprite) {
+namespace SpriteKind {
+    export const Renewable = SpriteKind.create()
+}
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Renewable, function (sprite, otherSprite) {
+    // @highlight
     tiles.placeOnRandomTile(otherSprite, assets.tile`tile0`)
     info.changeScoreBy(1)
 })

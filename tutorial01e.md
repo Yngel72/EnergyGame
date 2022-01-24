@@ -251,7 +251,7 @@ energy = sprites.create(img`
 ## Placing sprites
 
 ### Step 2
-Make your player character appear in a random spot. In the ``||Scene.Scene||`` menu, find ``||Scene.place mySprite on top of random...||``. Place this in ``||loops.on start||``, underneath ``||Variables.Set mySprite to...||``. Click the grey square and choose one of the tiles from the playing area. 
+Make your player character appear in a random spot. In the ``||Scene.Scene||`` menu, find ``||Scene.place mySprite on top of random...||``. Place this in ``||loops.on start||``, underneath ``||Variables.Set mySprite to...||``. Click the grey square and choose the sand coloured tile from the menu that pops up. 
 
 ```blocks
 tiles.setTilemap(tilemap`level1`)
@@ -274,6 +274,7 @@ let mySprite = sprites.create(img`
     . . . . f f f f f f . . . . 
     . . . . f f . . f f . . . . 
     `, SpriteKind.Player)
+// @highlight
 tiles.placeOnRandomTile(mySprite, sprites.castle.tilePath5)
 controller.moveSprite(mySprite)
 scene.cameraFollowSprite(mySprite)
@@ -343,12 +344,14 @@ let energy = sprites.create(img`
     . . . . . f f f . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Food)
+// @highlight
 tiles.placeOnRandomTile(energy, sprites.castle.tilePath5)
 
 ```
 
 ### Steg 4
 We need more energy sprites. Use a ``||loops.repeat||`` loop from the ``||loops.loops||``  menu to repeat the two lower blocks in ``||loops.on start||`` about 100 times.
+Tip: You can move individual blocks by pressing and holding Ctrl while you drag them.
 
 ```blocks
 let energy: Sprite = null
@@ -375,6 +378,7 @@ let mySprite = sprites.create(img`
 tiles.placeOnRandomTile(mySprite, sprites.castle.tilePath5)
 controller.moveSprite(mySprite)
 scene.cameraFollowSprite(mySprite)
+// @highlight
 for (let index = 0; index < 100; index++) {
     energy = sprites.create(img`
         . . . . . . . . . . . . . . . . 
@@ -416,6 +420,7 @@ Click on the variable ``||variables.otherSprite||`` and drag it to the oval area
 
 ```blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    // @highlight
     otherSprite.destroy()
 })
 ```
@@ -427,6 +432,7 @@ We need to keep track of your score. In the ``||Info.Info||`` menu you'll find `
 ```blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     otherSprite.destroy()
+    // @highlight
     info.changeScoreBy(1)
 })
 ```
@@ -483,6 +489,7 @@ for (let index = 0; index < 100; index++) {
         `, SpriteKind.Food)
     tiles.placeOnRandomTile(energy, sprites.castle.tilePath5)
 }
+// @highlight
 info.startCountdown(10)
 
 ```
