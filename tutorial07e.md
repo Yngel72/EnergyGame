@@ -186,7 +186,7 @@ How do different energy sources affect the environment? Here's a suggestion for 
 ### Step 1
 We'll let the planet itself be player 2 and have life that's diminished by gathering certain types of energy. Get a ``||Info.set player2 life to 3||`` block from the ``||Info.Info||`` menu and place it inside your main ``||Loops.on start||`` loop, right at the very bottom underneath the rest of your main code.
 
-```blocks
+```block
 info.player2.setLife(3)
 ```
 
@@ -197,6 +197,7 @@ Grab a ``||Info.change player2 life by -1||`` block from the ``||Info.Info||`` m
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     otherSprite.destroy()
     info.changeScoreBy(1)
+    // @highlight
     info.player2.changeLifeBy(-1)
 ```
 
@@ -210,6 +211,7 @@ namespace SpriteKind {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Fossil, function (sprite, otherSprite) {
     otherSprite.destroy()
     info.changeScoreBy(1)
+    // @highlight
     info.player2.changeLifeBy(-1)
 })
 ```

@@ -190,6 +190,7 @@ Let's make a sound when the player character picks up energy. Get a ``||Music.pl
 ```blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     otherSprite.destroy()
+    // @highlight
     music.baDing.play()
     info.changeScoreBy(1)
 })
@@ -205,6 +206,7 @@ namespace SpriteKind {
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Renewable, function (sprite, otherSprite) {
     tiles.placeOnRandomTile(otherSprite, assets.tile`transparency16`)
+    // @highlight
     music.magicWand.play()
     info.changeScoreBy(1)
 })

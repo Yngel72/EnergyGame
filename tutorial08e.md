@@ -241,6 +241,7 @@ let borderguard = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Guard)
+// @highlight
 tiles.placeOnRandomTile(borderguard, sprites.builtin.forestTiles0)
 ```
 ### Step 6
@@ -253,6 +254,7 @@ namespace SpriteKind {
     export const Guard = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Guard, function (sprite, otherSprite) {
+    // @highlight
     if (true) {
     	
     } else {
