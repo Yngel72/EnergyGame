@@ -349,7 +349,7 @@ tiles.placeOnRandomTile(energy, sprites.castle.tilePath5)
 
 ```
 
-### Steg 4
+### Ste4 4
 We need more energy sprites. Use a ``||loops.repeat||`` loop from the ``||loops.loops||``  menu to repeat the two lower blocks in ``||loops.on start||`` about 100 times.
 Tip: You can move individual blocks by pressing and holding Ctrl while you drag them.
 
