@@ -181,7 +181,7 @@ info.startCountdown(10)
 # Environmental impact - save the planet
 ## Introduction
 ### Introduction @unplugged
-How do different energy sources affect the environment? Here's a suggestion for how to make the game about saving the planet. You'll need to have done the tutorial on how to create different kinds of energy sources first. If you haven't, go back and do that one first. If you have already done it, please continue by clicking OK.
+How do different energy sources affect the environment? Here's a suggestion for how to make the game about saving the planet.
 
 ### Step 1
 Let's start by adding a fossil fuel source, like coal. Find a ``||Loops.repeat 4 times||`` block from the ``||Loops.Loops||``-menu and place it in your main code, underneath the other ``||Loops.repeat||`` blocks. Write 100 where i says 4 to make 100 instances of coal on the map.

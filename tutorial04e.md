@@ -230,7 +230,7 @@ game.onUpdateInterval(300, function () {
 
 ### Step 4
 Let's make your character walk to the left. 
-Get a hexagonal ``||Controller.is A button pressed||`` block from the ``||Controller||`` menu and place it inside the topmost hexagon in the ``||Logic.if-then-else||`` block. Click the tiny downwards arrow to the left of where it says button "A" in the hexagon and choose "left" from the drop-down menu.
+Get a hexagonal ``||Controller.is A button pressed||`` block from the ``||Controller.Controller||`` menu and place it inside the topmost hexagon in the ``||Logic.if-then-else||`` block. Click the tiny downwards arrow to the left of where it says ``||Variables.A||`` in the hexagon and choose ``||Variables.left||`` from the drop-down menu.
 
 ```blocks
 game.onUpdateInterval(300, function () {
@@ -329,7 +329,7 @@ game.onUpdateInterval(300, function () {
     }
 ```
 ### Step 7
-Click the grey square in the ``||Animation.animate mySprite||`` block. Choose "gallery" in the middle of the top of the screen. Notice how some of the thumbnails have small film icons at the bottom right? Hold your mouse pointer over these thumbnails to see the animation. Find your player character and click the animation where your character is walking towards the left.
+Click the grey square in the ``||Animation.animate mySprite||`` block. Choose "gallery" in the middle of the top of the screen. Notice how some of the thumbnails have small film camera icons in the bottom left corner? Hold your mouse pointer over a thumbnail to see the animation. Find your player character and click the animation where your character is walking towards the left.
 
 ```blocks
 game.onUpdateInterval(300, function () {
@@ -403,7 +403,7 @@ game.onUpdateInterval(300, function () {
     }
 ```
 ### Step 8
-Repeat step 5 through 7 for the three remaining directions. Remember to choose the correct animation and to set the time to 100 ms.
+Repeat step 5 through 7 for the three next gaps in your ``||Logic.if-then-else||`` block for the remaining directions. Remember to choose the correct animation and to set the time to 100 ms.
 Inside the final gap of your ``||Logic.if-then-else||`` block, place a ``||Sprites.set mySprite image to||`` block and choose the gallery image where your player character is facing you.
 ```blocks
 let mySprite: Sprite = null

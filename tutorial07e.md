@@ -181,7 +181,7 @@ info.startCountdown(10)
 # Environmental impact - save the planet
 ## Introduction
 ### Introduction @unplugged
-How do different energy sources affect the environment? Here's a suggestion for how to make the game about saving the planet. You'll need to have done the tutorial on how to create different kinds of energy sources first. If you haven't, go back and do that one first. If you have already done it, please continue by clicking OK.
+How do different energy sources affect the environment? Here's a suggestion for how to make the game about saving the planet.
 
 ### Step 1
 We'll let the planet itself be player 2 and have life that's diminished by gathering certain types of energy. Get a ``||Info.set player2 life to 3||`` block from the ``||Info.Info||`` menu and place it inside your main ``||Loops.on start||`` loop, right at the very bottom underneath the rest of your main code.

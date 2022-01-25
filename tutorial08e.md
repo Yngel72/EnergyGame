@@ -192,12 +192,12 @@ Click on the small map icon in the ``||Scene.set tilemap to||`` block once more.
 Draw a wall that divides the map between the two islands. Make sure the border goes all the way out to the edge of the map and that the only opening is at the border control post.
 ![Grensemur](https://raw.githubusercontent.com/Yngel72/energispillet/master/assets/Grensevegg4.gif)
 ### Step 4
-Add a guard to the control post. Get a ``||Sprites.set mySprite to sprite of kind||`` block from the ``||Sprites.Sprites||`` menu and place it inside your main code near the bottom. Click the grey square in the block and choose an image for your guard. Click where it says ``||Variables.mySprite||`` in the same block and choose ``||variables.new variable||``. Name the new variable "borderguard". Change the ``||Sprites.Kind||`` to a new kind that you can name ``||Sprites.Guard||`` or something similar that makes sense.
+Add a guard to the control post. Get a ``||Sprites.set mySprite to sprite of kind||`` block from the ``||Sprites.Sprites||`` menu and place it inside your main code near the bottom. Click the grey square in the block and choose an image for your guard. Click where it says ``||Variables.mySprite||`` in the same block and choose ``||variables.new variable||``. Name the new variable ``||Variables.borderGuard||``. Change the ``||Sprites.Kind||`` to a new kind that you can name ``||Sprites.Guard||`` or something similar that makes sense.
 ```block
 namespace SpriteKind {
     export const Guard = SpriteKind.create()
 }
-let borderguard = sprites.create(img`
+let borderGuard = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
     . . . f f f 2 2 2 2 f f f . . . 
@@ -218,12 +218,14 @@ let borderguard = sprites.create(img`
 
 ```
 ### Step 5
-Place the border guard on the map by adding a ``||Scene.place mySprite on top of random tile||`` block from the ``||Scene.Scene||`` menu underneath your new blocks and choose ``||Variables.borderguard||`` instead of ``||Variables.mySprite||``. Choose the controlpost tile as the tile kind to place the sprite on.
+Place the border guard on the map by adding a ``||Scene.place mySprite on top of random tile||`` block from the ``||Scene.Scene||`` menu underneath your new blocks and choose ``||Variables.borderGuard||`` instead of ``||Variables.mySprite||``. Choose the controlpost tile as the tile kind to place the sprite on.
 ```block
+
 namespace SpriteKind {
     export const Guard = SpriteKind.create()
 }
-let borderguard = sprites.create(img`
+
+let borderGuard = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
     . . . f f f 2 2 2 2 f f f . . . 
@@ -242,7 +244,7 @@ let borderguard = sprites.create(img`
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Guard)
 // @highlight
-tiles.placeOnRandomTile(borderguard, sprites.builtin.forestTiles0)
+tiles.placeOnRandomTile(borderGuard, sprites.builtin.forestTiles0)
 ```
 ### Step 6
 What happens when the player meets the guard?
