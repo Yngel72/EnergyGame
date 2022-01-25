@@ -11,6 +11,7 @@
 * [Tutorial 5 - Adding a rival](https://arcade.makecode.com/#tutorial:github:yngel72/energygame/tutorial05e)
 * [Tutorial 6 - Adding sound effects](https://arcade.makecode.com/#tutorial:github:yngel72/energygame/tutorial06e)
 * [Tutorial 7 - Environmantal impact](https://arcade.makecode.com/#tutorial:github:yngel72/energygame/tutorial07e)
+* [Tutorial 7.2 - Alternative environmental impact](https://arcade.makecode.com/#tutorial:github:yngel72/energygame/tutorial072e)
 * [Tutorial 8 - Border control](https://arcade.makecode.com/#tutorial:github:yngel72/energygame/tutorial08e)
 
 ## Use as Extension
